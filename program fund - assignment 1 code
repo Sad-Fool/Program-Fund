@@ -1,0 +1,315 @@
+class Customer:
+    """Represents a customer in the delivery system."""
+
+    def __init__(self, customer_id, name, delivery_address, contact_info, preferred_language):
+        """Initializes a Customer object."""
+        self._customer_id = customer_id
+        self._name = name
+        self._delivery_address = delivery_address
+        self._contact_info = contact_info
+        self._preferred_language = preferred_language
+        self._order_history = []  # To store order history
+
+    # Getter methods
+    def get_customer_id(self):
+        return self._customer_id
+
+    def get_name(self):
+        return self._name
+
+    def get_delivery_address(self):
+        return self._delivery_address
+
+    def get_contact_info(self):
+        return self._contact_info
+
+    def get_preferred_language(self):
+        return self._preferred_language
+
+    def get_order_history(self):
+        return self._order_history
+
+    # Setter methods
+    def set_name(self, name):
+        self._name = name
+
+    def set_delivery_address(self, address):
+        self._delivery_address = address
+
+    def set_contact_info(self, contact):
+        self._contact_info = contact
+
+    def set_preferred_language(self, language):
+        self._preferred_language = language
+
+    def add_order_to_history(self, order):
+        self._order_history.append(order)
+
+    def place_order(self):
+        """Should create a new order and return the order ID."""
+        pass
+
+    def track_delivery(self, order_id):
+        """Should return the delivery status for the given order ID."""
+        pass
+
+    def view_history(self):
+        """Should return the order history as a string."""
+        pass
+
+    def manage_account(self):
+        """Should allow the customer to manage their account details."""
+        pass
+
+class Order:
+    """Represents an order in the delivery system."""
+
+    def __init__(self, order_id, customer_id, order_date, delivery_address, items, payment_method):
+        """Initializes an Order object."""
+        self._order_id = order_id
+        self._customer_id = customer_id
+        self._order_date = order_date
+        self._delivery_address = delivery_address
+        self._items = items
+        self._payment_method = payment_method
+        self._order_status = "Pending"  # Initial status
+
+    # Getter methods
+    def get_order_id(self):
+        return self._order_id
+
+    def get_customer_id(self):
+        return self._customer_id
+
+    def get_order_date(self):
+        return self._order_date
+
+    def get_delivery_address(self):
+        return self._delivery_address
+
+    def get_items(self):
+        return self._items
+
+    def get_payment_method(self):
+        return self._payment_method
+
+    def get_order_status(self):
+        return self._order_status
+
+    # Setter methods
+    def set_delivery_address(self, address):
+        self._delivery_address = address
+
+    def set_items(self, items):
+        self._items = items
+
+    def set_payment_method(self, payment):
+        self._payment_method = payment
+
+    def set_order_status(self, status):
+        self._order_status = status
+
+    def add_item(self, item):
+        """Should add an item to the order."""
+        pass
+
+    def calculate_total(self):
+        """Should calculate the total cost of the order."""
+        pass
+
+class DeliveryDriver:
+    """Represents a delivery driver in the delivery system."""
+
+    def __init__(self, driver_id, name, contact_info, vehicle_type, current_location):
+        """Initializes a DeliveryDriver object."""
+        self._driver_id = driver_id
+        self._name = name
+        self._contact_info = contact_info
+        self._vehicle_type = vehicle_type
+        self._current_location = current_location
+        self._assigned_deliveries = []
+
+    # Getter methods
+    def get_driver_id(self):
+        return self._driver_id
+
+    def get_name(self):
+        return self._name
+
+    def get_contact_info(self):
+        return self._contact_info
+
+    def get_vehicle_type(self):
+        return self._vehicle_type
+
+    def get_current_location(self):
+        return self._current_location
+
+    def get_assigned_deliveries(self):
+        return self._assigned_deliveries
+
+    # Setter methods
+    def set_contact_info(self, contact):
+        self._contact_info = contact
+
+    def set_vehicle_type(self, vehicle):
+        self._vehicle_type = vehicle
+
+    def set_current_location(self, location):
+        self._current_location = location
+
+    def assign_delivery(self, delivery):
+        self._assigned_deliveries.append(delivery)
+
+    def view_assigned(self):
+        """Should return the assigned deliveries as a string."""
+        pass
+
+    def update_status(self, delivery_id, status):
+        """Should update the delivery status."""
+        pass
+
+    def mark_delivered(self, delivery_id):
+        """Should mark the delivery as delivered."""
+        pass
+
+class Delivery:
+    """Represents a delivery assignment in the delivery system."""
+
+    def __init__(self, delivery_id, order_id, driver_id, delivery_status, delivery_date, delivery_time, delivery_location):
+        """Initializes a Delivery object."""
+        self._delivery_id = delivery_id
+        self._order_id = order_id
+        self._driver_id = driver_id
+        self._delivery_status = delivery_status
+        self._delivery_date = delivery_date
+        self._delivery_time = delivery_time
+        self._delivery_location = delivery_location
+
+    # Getter methods
+    def get_delivery_id(self):
+        return self._delivery_id
+
+    def get_order_id(self):
+        return self._order_id
+
+    def get_driver_id(self):
+        return self._driver_id
+
+    def get_delivery_status(self):
+        return self._delivery_status
+
+    def get_delivery_date(self):
+        return self._delivery_date
+
+    def get_delivery_time(self):
+        return self._delivery_time
+
+    def get_delivery_location(self):
+        return self._delivery_location
+
+    # Setter methods
+    def set_delivery_status(self, status):
+        self._delivery_status = status
+
+    def set_delivery_date(self, date):
+        self._delivery_date = date
+
+    def set_delivery_time(self, time):
+        self._delivery_time = time
+
+    def set_delivery_location(self, location):
+        self._delivery_location = location
+
+    def update_status(self, status):
+        """Should update the delivery status."""
+        pass
+
+    def get_delivery_status(self):
+        """Should return the delivery status."""
+        pass
+
+# Customer Object
+customer = Customer(
+    1,  # customer_id
+    "Sarah Johnson",  # name
+    "45 Knowledge Avenue, Dubai, UAE",  # delivery_address
+    "sarah.johnson@example.com",  # contact_info
+    "English"  # preferred_language
+)
+
+# Order Object
+order = Order(
+    "DEL123456789",  # order_id
+    1,  # customer_id (linking to the customer object)
+    "2025-01-25",  # order_date
+    "45 Knowledge Avenue, Dubai, UAE",  # delivery_address (same as customer)
+    "Wireless Keyboard (1), Wireless Mouse & Pad Set (1), Laptop Cooling Pad (1), Camera Lock (3)",  # items (simplified)
+    "Credit Card"  # payment_method (simplified)
+)
+
+# DeliveryDriver Object
+driver = DeliveryDriver(
+    101,  # driver_id
+    "Delivery Driver 1",  # name (replace with actual driver name)
+    "driver1@example.com",  # contact_info (replace with driver contact)
+    "Car",  # vehicle_type
+    "Dubai"  # current_location (replace with actual location)
+)
+
+# Delivery Object
+delivery = Delivery(
+    "DN-2025-001",  # delivery_id
+    "DEL123456789",  # order_id (linking to the order object)
+    101,  # driver_id (linking to the driver object)
+    "Delivered",  # delivery_status
+    "2025-01-25",  # delivery_date
+    "10:00 AM",  # delivery_time (replace with actual time)
+    "45 Knowledge Avenue, Dubai, UAE"  # delivery_location (same as customer)
+)
+
+# Delivery Note Generation
+
+print("Delivery Note")
+print("Thank you for using our delivery service! Please print your delivery receipt and present it upon receiving your items.\n")
+
+# Recipient Details
+print("Recipient Details:")
+print(f"Name: {customer.get_name()}")
+print(f"Contact: {customer.get_contact_info()}")
+print(f"Delivery Address: {customer.get_delivery_address()}\n")
+
+# Delivery Information
+print("Delivery Information:")
+print(f"Order Number: {order.get_order_id()}")
+print(f"Reference Number: {delivery.get_delivery_id()}")
+print(f"Delivery Date: {delivery.get_delivery_date()}")
+print(f"Delivery Method: Courier")  # Assuming courier
+print(f"Package Dimensions: (Not provided in the figure)")
+print(f"Total Weight: 7 kg\n")
+
+# Summary of Items Delivered
+print("Summary of Items Delivered:")
+print("Item Code\tDescription\tQuantity\tUnit Price (AED)\tTotal Price (AED)")
+items_list = order.get_items().split(", ")  # Split items string into a list
+item_prices = {  # Replace with actual item prices
+    "Wireless Keyboard (1)": (100.00, 1),
+    "Wireless Mouse & Pad Set (1)": (75.00, 1),
+    "Laptop Cooling Pad (1)": (120.00, 1),
+    "Camera Lock (3)": (15.00, 3)
+}
+
+subtotal = 0
+for item in items_list:
+    price, quantity = item_prices[item]
+    total_price = price * quantity
+    subtotal += total_price
+    item_code = item.split(" ")[0]  # Extract item code (simplified)
+    print(f"{item_code}\t{item.split('(')[0]}\t{quantity}\t{price:.2f}\t{total_price:.2f}")
+
+taxes_and_fees = 13.50  # Replace with actual taxes and fees
+total_charges = subtotal + taxes_and_fees
+
+print(f"\nSubtotal: AED {subtotal:.2f}")
+print(f"Taxes and Fees: AED {taxes_and_fees:.2f}")
+print(f"Total Charges: AED {total_charges:.2f}")
